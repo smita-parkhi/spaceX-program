@@ -1,0 +1,41 @@
+.filter-wrapper {
+    width: 100%;
+
+    .filter-section {
+        background-color: white;
+        margin: 10px;
+        h3{
+            font-size: 15px;
+            font-family: 'open sans';
+        }
+        .filter-on-data{
+            
+        }
+    }
+    .card-section {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .filter-wrapper {
+        .filter-section {
+            
+        }
+        .card-section {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .filter-wrapper {
+        .filter-section {
+        }
+        .card-section {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+        }
+    }
+}
