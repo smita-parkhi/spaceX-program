@@ -15,7 +15,7 @@ export default function Filter({ filterHeading, options, activeFilterValue, lauc
             <div className='filter-section'>
                 <p className='heading'>{filterHeading}</p>
                 <ul className='options'>
-                    {options.map(filter => <li style={{ backgroundColor: (activeFilterValue && activeFilterValue.filterValue === filter.filterValue) ? 'red' : 'green' }}
+                    {options.map(filter => <li style={{ backgroundColor: (activeFilterValue && activeFilterValue.filterValue === filter.filterValue) ? '#006400' : '#90EE90' }}
                         onClick={() => {
                             handleFilterClick(filter);
                         }}>

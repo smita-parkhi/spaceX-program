@@ -1,3 +1,69 @@
-.home-wrapper{
+.home-container {
+    .home-heading {
+        margin: 0px;
+        padding: 0px 0px 0px 20px;
+        width: 60%;
+        font-size: 20px;
+        font-family: "open sans";
+        font-weight: bold;
+    }
+}
+.home-wrapper {
     padding: 12px;
+    h2 {
+        width: 80%;
+        margin: 0px 10px 0px 10px;
+        font-family: "open sans";
+    }
+    .filter {
+        background-color: white;
+        height: 100%;
+        margin: 10px;
+        .filter-heading {
+            margin: 0px;
+            padding: 5px;
+            font-size: 18px;
+            font-family: "open sans";
+            font-weight: 800;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .home-wrapper {
+        width: 100%;
+        display: flex;
+        .filter {
+            width: 30%;
+            .filter-heading {
+                margin: 0px;
+                padding: 5px;
+                font-size: 18px;
+            }
+        }
+        .card-section {
+            width: 65%;
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .home-container {
+        .home-heading {
+            font-size: 25px;
+        }
+        .home-wrapper {
+            .filter {
+                width: 20%;
+            }
+            .card-section {
+                width: 76%;
+                display: grid;
+                justify-content: space-between;
+                grid-template-columns: auto auto auto auto;
+            }
+        }
+    }
 }
