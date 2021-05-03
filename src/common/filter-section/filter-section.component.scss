@@ -4,12 +4,20 @@
     .filter-section {
         background-color: white;
         margin: 10px;
-        h3{
-            font-size: 15px;
-            font-family: 'open sans';
+        .heading {
+            margin: 10px;
+            padding: 8px;
+            border-bottom: 1px solid lightgray;
+            display: flex;
+            justify-content: center;
         }
-        .filter-on-data{
-            
+
+        .options {
+            width: 80%;
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: space-around;
+            text-align: center;
         }
     }
     .card-section {
@@ -20,7 +28,6 @@
 @media screen and (min-width: 768px) {
     .filter-wrapper {
         .filter-section {
-            
         }
         .card-section {
             display: grid;
