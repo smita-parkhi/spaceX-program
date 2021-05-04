@@ -32,6 +32,11 @@
 }
 
 @media screen and (min-width: 768px) {
+    .home-container{
+        .home-heading{
+            font-size: 40px;
+        }
+    }
     .home-wrapper {
         width: 100%;
         display: flex;
@@ -45,7 +50,7 @@
         .card-section {
             width: 65%;
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: 250px 250px;
         }
     }
 }
@@ -63,7 +68,7 @@
                 width: 76%;
                 display: grid;
                 justify-content: space-between;
-                grid-template-columns: auto auto auto auto;
+                grid-template-columns: 250px 250px 250px 250px;
             }
         }
     }

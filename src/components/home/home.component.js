@@ -1,21 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import Filter from '../../common/filter-section/filter-section.component';
 import Card from '../../common/card/card.component';
+import axios from 'axios'
 
 import './home.component.scss'
 
-
-
 export default function Home() {
-
+    const [spaceXData, setSpaceXData] = useState()
     const [activeLanuchYear, setActiveLaunchYear] = useState(undefined)
     const [isSuccessfulLaunch, setSuccessfulLaunch] = useState(undefined)
     const [isSuccessfulLand, setSuccessfulLand] = useState(undefined)
 
     useEffect(() => {
-        console.log('cal api')
+        fetchFilteredMissions()
     }, [activeLanuchYear, isSuccessfulLaunch, isSuccessfulLand])
 
+    function fetchFilteredMissions(params) {
+        let url = 'https://api.spacexdata.com/v3/launches?limit=100'
+        if (isSuccessfulLaunch) {
+            url = url + `&launch_success=${isSuccessfulLaunch.filterValue}`
+        }
+        if (isSuccessfulLand) {
+            url = url + `&land_success=${isSuccessfulLand.filterValue}`
+        }
+        if (activeLanuchYear) {
+            url = url + `&launch_year=${activeLanuchYear.filterValue}`
+        }
+        axios.get(url).then(res => {
+            if (res) {
+                setSpaceXData(res.data);
+            }
+        });
+    }
+  
 
     const launchYearFilter = [
         { id: 1, filterName: 2006, filterValue: 2006 },
@@ -47,19 +64,15 @@ export default function Home() {
 
     const handleLauchYearChange = (activeFilter) => {
         setActiveLaunchYear(activeFilter)
-        setSuccessfulLaunch(activeFilter)
-        setSuccessfulLand(activeFilter)
     }
 
     const handleSuccessfulLaunch = (filter) => {
-        console.log(filter)
         setSuccessfulLaunch(filter)
     }
 
     const handleSuccessfulLand = (activeFilter) => {
         setSuccessfulLand(activeFilter)
     }
-
 
     return (
         <div className='home-container'> 
@@ -91,12 +104,7 @@ export default function Home() {
                 </div>
 
                 <div className='card-section'>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {spaceXData && spaceXData.map(spaceXRocket => <Card Rocket={spaceXRocket} />)}
                 </div>
 
             </div>
